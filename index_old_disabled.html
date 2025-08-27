@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Em construção — Prof.William Corrêa Mendes</title>
+  <meta name="description" content="Página temporária. Em breve, novidades." />
+  <meta name="author" content="William Corrêa Mendes" />
+  <meta name="theme-color" content="#0b1020" />
+  <style>
+    :root{
+      --bg:#0b1020; --fg:#e5e7eb; --muted:#9aa4b2; --accent:#60a5fa; --card:rgba(17,23,41,.85); --border:rgba(255,255,255,.12); --track:rgba(255,255,255,.08);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f8fafc; --fg:#0f172a; --muted:#475569; --accent:#2563eb; --card:#ffffff; --border:rgba(15,23,42,.14); --track:rgba(15,23,42,.1); }
+      meta[name="theme-color"]{ content:#f8fafc; }
+    }
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0; background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,.15), transparent 60%),
+        radial-gradient(1200px 600px at 90% 90%, rgba(139,92,246,.15), transparent 60%),
+        var(--bg);
+      color:var(--fg);
+      display:grid; place-items:center;
+      font: 500 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    main{ width:min(720px, 92vw); background:var(--card); border:1px solid var(--border); padding: clamp(24px, 4vw, 44px); border-radius: 22px; box-shadow: 0 8px 30px rgba(0,0,0,.18); }
+    h1{ font-size: clamp(28px, 6vw, 44px); margin: 0 0 .3rem; letter-spacing:-0.02em }
+    .lead{ font-size: clamp(16px, 3.5vw, 18px); color: var(--muted); margin: 0 0 1.25rem }
+    .badge{ display:inline-flex; gap:.5rem; align-items:center; background: rgba(96,165,250,.12); border:1px dashed rgba(96,165,250,.5); color: var(--fg); padding:.45rem .75rem; border-radius:999px; font-size:.9rem }
+    .progress{ height: 10px; background: var(--track); border-radius: 999px; overflow: hidden; position: relative; margin: 1rem 0 1.25rem }
+    .progress::before{ content:""; position:absolute; inset:0; transform:translateX(-100%); background: linear-gradient(90deg, rgba(0,0,0,0), var(--accent), rgba(0,0,0,0)); animation: load 1.8s infinite }
+    @keyframes load{ 50%{ transform:translateX(0) } 100%{ transform:translateX(100%) } }
+    ul{ margin:.6rem 0 0; padding-left:1.2rem }
+    a{ color:var(--accent); text-underline-offset: 2px }
+    footer{ margin-top:1.25rem; color:var(--muted); font-size:.95rem; display:flex; flex-wrap:wrap; gap:.6rem .8rem; align-items:center; justify-content:space-between }
+    code{ background: rgba(255,255,255,.08); padding:.2rem .45rem; border-radius:.5rem }
+  </style>
+</head>
+<body>
+  <main role="main" aria-live="polite">
+    <span class="badge" aria-hidden="true">🔧 Em construção</span>
+    <h1>Site em construção</h1>
+    <p class="lead">Este endereço está passando por ajustes finais. Em breve, conteúdos sobre projetos, pesquisa e materiais de aula.</p>
+
+    <div class="progress" role="progressbar" aria-label="Progresso de construção" aria-valuemin="0" aria-valuemax="100" aria-valuenow="42"></div>
+
+    <section aria-labelledby="acompanhe">
+      <h2 id="acompanhe" style="position:absolute; left:-9999px">Como acompanhar</h2>
+      <ul>
+        <li>Atualizações rápidas via <a href="https://github.com/wcmendes/ed_modulo4/">GitHub</a>.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> • Autor: <strong>William Corrêa Mendes</strong></div>
+      <div><small>Última atualização: <time id="updated" datetime=""></time></small></div>
+    </footer>
+  </main>
+
+  <script>
+    // Atualiza ano atual e data de última modificação da página
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const last = new Date(document.lastModified);
+    const opts = { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' };
+    const updated = document.getElementById('updated');
+    updated.textContent = last.toLocaleString('pt-BR', opts);
+    updated.setAttribute('datetime', last.toISOString());
+  </script>
+  <noscript>Este site usa um pequeno JavaScript para mostrar a última atualização.</noscript>
+</body>
+</html>
