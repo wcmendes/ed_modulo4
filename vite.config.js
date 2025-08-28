@@ -6,7 +6,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(),tailwindcss()],
-  base: './', // necessário para GitHub Pages em project site
+  base: './', // necessário para GitHub Pages em project sites
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
